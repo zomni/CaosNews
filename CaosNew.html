@@ -14,7 +14,7 @@
         <script src="jquery.js"></script>
     </head>
     <body class="fondo">
-        <!--NavBar--> 
+    <!--NavBar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-fondo fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="CaosNew.html"><img src="Imagenes/caos news (1).png" height="50" width="100">CaosNews</a>
@@ -24,7 +24,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="CaosNew.html">Inicio</a>
+                            <a class="nav-link" href="CaosNew.html">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Contacto.html">Contactanos</a>
@@ -41,6 +41,12 @@
                                 <li><a class="dropdown-item" href="Politica.html">Politica</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="darkModeSwitch" onclick="modooscuro()">
+                                <label class="form-check-label" for="darkModeSwitch">Modo oscuro</label>
+                            </div>
+                        </li>
                     </ul>
                     <form class="d-flex navbar-search-margin" role="search">
                         <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
@@ -53,7 +59,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span id="userName"></span>
                         </a>
-                        <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="NoticiasUsuario.html">Sus noticias</a></li>
                             <li><a class="dropdown-item" href="#" id="logoutBtn">Cerrar sesión</a></li>
                         </ul>
@@ -61,7 +67,8 @@
                 </div>
             </div>
         </nav>
-        <!--Fin del NavBar-->
+    <!--Fin del NavBar-->
+
     <h1 style="margin-left: 24px; font-family:Anton, sans-serif; ">¡Bienvenido a CaosNews!</h1>
     <p style="font-family: 'Times New Roman', Times, serif; margin-left: 16px; text-align: justify; margin-right: 16 px; margin-top: 20px;">En CaosNews, nos enorgullece mantenerte al tanto de las últimas noticias y acontecimientos, desde los eventos más importantes que impactan al mundo hasta las historias más cautivadoras que merecen ser compartidas. Como tu fuente confiable de información, nuestro equipo está comprometido a ofrecerte noticias precisas, imparciales y relevantes en una variedad de temas, desde política y tecnología hasta deportes y entretenimiento.</p>
     <h2 style="margin-left: 36px; font-family: Bebas Neue, sans-serif;">A continuacion...</h2>
@@ -70,9 +77,9 @@
     <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="col">
+                        <div class="col p-0">
                             <a href="Noticia1.html">
                                 <img src="/Imagenes/tistos.jpg" class="d-block w-100" alt="...">
                                 <p class="textoimagen">Tiktok suspende su programa de recompensas de la versión Lite, tal como exigía la Comisión Europea</p>
@@ -82,25 +89,25 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="col">
-                          <a href="Noticia2.html">
-                            <img src="/Imagenes/athetlic.jpg" class="d-block w-100" alt="...">
-                            <p class="textoimagen">El Athletic se aleja de la Champions al caer derrotado en casa del Atlético (3-1)</p>
-                          </a>
+                        <div class="col p-0">
+                            <a href="Noticia2.html">
+                                <img src="/Imagenes/athetlic.jpg" class="d-block w-100" alt="...">
+                                <p class="textoimagen">El Athletic se aleja de la Champions al caer derrotado en casa del Atlético (3-1)</p>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="col">
-                          <a href="Noticia3.html">
-                            <img src="https://www.24horas.cl/24horas/site/artic/20240427/imag/foto_0000001820240427185858/pena_de_muerte.jpg" class="d-block w-100" alt="...">
-                            <p class="textoimagen">Asesinato de carabineros en Cañete: solicitan proyecto de ley para aplicar pena de muerte para quienes maten policías</p>
-                          </a>
+                        <div class="col p-0">
+                            <a href="Noticia3.html">
+                                <img src="https://www.24horas.cl/24horas/site/artic/20240427/imag/foto_0000001820240427185858/pena_de_muerte.jpg" class="d-block w-100" alt="...">
+                                <p class="textoimagen">Asesinato de carabineros en Cañete: solicitan proyecto de ley para aplicar pena de muerte para quienes maten policías</p>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -115,8 +122,8 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <!--Fin del carrusel-->
 
+    <!--Fin del carrusel-->
     <!--Footer-->
     <footer class="footer">
             <p>© 2024 CaosNews. Todos los derechos reservados.</p>
