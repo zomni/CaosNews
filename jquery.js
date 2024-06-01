@@ -187,4 +187,8 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         document.getElementById("darkModeSwitch").checked = false;
     }
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> d0f03d825b8a1587c9279266a2a5b0cc2b9fd3c1
