@@ -1,29 +1,3 @@
-var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-z0-9\-\.]+$/;
-$(document).ready(function(){
-    $("#bEnviar").click(function(){
-        var nombre = $("#itNombre").val();
-        var correo = $("#itMail").val();
-        var asunto = $("#itAsunto").val();
-
-        if(nombre == ""){
-            $("#mensaje1").fadeIn();   
-        return false;                 
-        }else{
-            $("#mensaje1").fadeOut();
-            if(correo == ""|| !expr.test(correo)){
-            $("#mensaje2").fadeIn();
-            return false; 
-            }else{
-                $("#mensaje2").fadeOut();
-                if(asunto ==""){
-                    $("#mensaje3").fadeIn();
-                    return false;
-                }
-            }       
-        }
-    });
-});
-
 $(document).ready(function() {
     function isLoggedIn() {
         return localStorage.getItem('loggedIn') === 'true';
@@ -175,4 +149,42 @@ $(document).ready(function() {
     $("#logoutBtn").click(function() {
         logout();
     });
+    
+    // Funcion para abrir las cards
+    $('#modal-container').load('modal.html');
+
+    $('.card').click(function(){
+        $('.biografia').hide();
+        $(this).find('.biografia').show();
+    });
+});
+
+function modooscuro() {
+    var oscuro = document.body;
+    oscuro.classList.add("transition");
+    oscuro.classList.toggle("oscuro");
+
+    var darkModeSwitch = document.getElementById("darkModeSwitch");
+    if (oscuro.classList.contains("oscuro")) {
+        darkModeSwitch.checked = true;
+        localStorage.setItem('modoOscuro', 'true');
+    } else {
+        darkModeSwitch.checked = false;
+        localStorage.setItem('modoOscuro', 'false');
+    }
+    
+    // Elimina la clase 'transition' después de que se complete la transición
+    setTimeout(function() {
+        oscuro.classList.remove("transition");
+    }, 500);
+}
+
+// Inicializa el modo oscuro basado en el almacenamiento local
+document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('modoOscuro') === 'true') {
+        document.body.classList.add('oscuro');
+        document.getElementById("darkModeSwitch").checked = true;
+    } else {
+        document.getElementById("darkModeSwitch").checked = false;
+    }
 });
