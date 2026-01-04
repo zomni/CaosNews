@@ -1,118 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CaosNews</title>
-    <link href="Style.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Jersey+25&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="jquery.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tecnología | CaosNews</title>
+
+  <link rel="stylesheet" href="Style.css" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+          crossorigin="anonymous"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js"
+          integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+          crossorigin="anonymous"></script>
+  <script src="jquery.js"></script>
+
+  <style>
+    .page-title{
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      margin: 6px 0 10px 0;
+    }
+    .page-text{
+      max-width: 980px;
+      text-align: justify;
+      opacity: 0.95;
+      margin: 0;
+    }
+    .carousel-wrap{
+      margin-top: 18px;
+    }
+  </style>
 </head>
+
 <body class="fondo">
-    <!--NavBar--> 
-    <nav class="navbar navbar-expand-lg navbar-light bg-fondo fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="CaosNew.html"><img src="Imagenes/caos news (1).png" height="50" width="100">CaosNews</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="CaosNew.html">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Contacto.html">Contactanos</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Noticias
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="Deporte.html">Deporte</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="Tecnologia.html">Tecnologia</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="Politica.html">Politica</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="darkModeSwitch" onclick="modooscuro()">
-                            <label class="form-check-label" for="darkModeSwitch">Modo oscuro</label>
-                        </div>
-                    </li>
-                </ul>
-                <form class="d-flex navbar-search-margin" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
-                <li class="nav-item" id="loginLink">
-                    <a class="nav-link" href="Login.html">Login</a>
-                </li>
-                <div class="nav-item dropdown" id="userDropdown" style="display: none;">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span id="userName"></span>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="NoticiasUsuario.html">Sus noticias</a></li>
-                        <li><a class="dropdown-item" href="#" id="logoutBtn">Cerrar sesión</a></li>
-                    </ul>
-                </div>
+
+  <!-- NavBar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-fondo fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="CaosNew.html">
+        <img src="Imagenes/caos news (1).png" height="50" width="100" alt="CaosNews">CaosNews
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="CaosNew.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="Contacto.html">Contáctanos</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Noticias
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Deporte.html">Deporte</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item active" href="Tecnologia.html">Tecnología</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="Politica.html">Política</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item d-flex align-items-center ms-lg-3">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="darkModeSwitch" onclick="modooscuro()">
+              <label class="form-check-label" for="darkModeSwitch">Modo oscuro</label>
             </div>
+          </li>
+        </ul>
+
+        <form class="d-flex navbar-search-margin" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+
+        <li class="nav-item" id="loginLink">
+          <a class="nav-link" href="Login.html">Login</a>
+        </li>
+
+        <div class="nav-item dropdown" id="userDropdown" style="display:none;">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            <span id="userName"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="NoticiasUsuario.html">Sus noticias</a></li>
+            <li><a class="dropdown-item" href="#" id="logoutBtn">Cerrar sesión</a></li>
+          </ul>
         </div>
-    </nav>
-        <!--Fin del NavBar-->
-<h1 style="font-family:Anton, sans-serif; margin-left: 24px;">Ven y enterate sobre...</h1>
-<p style="margin-left: 16px; margin-right: 16px; margin-top: 20px; font-family: 'Times New Roman', Times, serif;">
-    Descubre las últimas innovaciones y avances tecnológicos con CaosNews. En nuestra sección de tecnología, te mantenemos al tanto de las noticias más recientes en el mundo de la innovación, la ciencia y la tecnología.<br><br> Desde los lanzamientos de los últimos dispositivos hasta los desarrollos más sorprendentes en inteligencia artificial y robótica, nuestra cobertura te brinda una visión completa de cómo la tecnología está transformando nuestro mundo. <br><br>Ya seas un entusiasta de la tecnología o simplemente estés interesado en cómo está moldeando nuestro futuro, encontrarás artículos informativos y análisis perspicaces para mantenerte actualizado y inspirado. Con CaosNews, explora el fascinante mundo de la tecnología y descubre cómo está dando forma a nuestras vidas y sociedades.</p>
-    <!--Carrusel Noticias deporte-->
-    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col">
-                            <a href="Noticia1.html">
-                                <img src="/Imagenes/tistos.jpg" class="d-block w-100" alt="...">
-                                <p class="textoimagen">Tiktok suspende su programa de recompensas de la versión Lite, tal como exigía la Comisión Europea</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col">
-                            <a href="Noticia5.html">
-                              <img src="/Imagenes/riscv.jpeg" class="d-block w-100" alt="...">
-                              <p class="textoimagen">La tecnología RISC-V representa una oportunidad para China.</p>
-                            </a>
-                          </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+
+      </div>
     </div>
-    <!--Fin del carrusel-->
-    <!--Footer-->
-    <footer class="footer">
-        <p>© 2024 CaosNews. Todos los derechos reservados.</p>
-</footer>
-<!--Fin del Footer-->
+  </nav>
+  <!-- Fin NavBar -->
+
+  <main class="container my-4">
+    <h1 class="page-title">Tecnología al día</h1>
+    <p class="page-text">
+      En CaosNews seguimos de cerca las tendencias tecnológicas: apps, IA, redes sociales, ciberseguridad y todo lo que
+      impacta en cómo vivimos y nos comunicamos.
+      <br><br>
+      Aquí encontrarás noticias claras, rápidas y con el contexto necesario para entender qué está pasando y por qué
+      importa.
+    </p>
+
+    <section class="carousel-wrap">
+      <div id="carouselTecnologia" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          <div class="carousel-item active">
+            <a href="Noticia1.html" class="d-block text-decoration-none">
+              <img src="Imagenes/tistos.jpg" class="d-block w-100" alt="Noticia TikTok">
+              <p class="textoimagen">Tiktok suspende su programa de recompensas de la versión Lite, tal como exigía la Comisión Europea</p>
+            </a>
+          </div>
+
+          <!-- Si tienes otra noticia tech, puedes agregarla aquí -->
+          <div class="carousel-item">
+            <a href="Noticia4.html" class="d-block text-decoration-none">
+              <img src="Imagenes/tech.jpg" class="d-block w-100" alt="Noticia Tecnología">
+              <p class="textoimagen">Lo último en tecnología: tendencias, lanzamientos y avances que están cambiando el mundo</p>
+            </a>
+          </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselTecnologia" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselTecnologia" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2024 CaosNews. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>

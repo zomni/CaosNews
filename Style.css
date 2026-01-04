@@ -1,451 +1,517 @@
-.navbar {
-    background-color: #ffffff;
-    padding: 1rem;
-    border-bottom: 1px solid #ddd;
-}
-  
-.navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-}
-  
-.navbar-toggler {
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1.5rem;
-    line-height: 1;
-    background-color: transparent;
-    border-radius: 0.25rem;
+/* =========================
+   CaosNews - Style.css (ordenado)
+   ========================= */
+
+/* Reset básico */
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
 }
 
-.navbar-toggler-icon {
-    display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
-    vertical-align: middle;
-    content: "";
-    background: no-repeat center center;
-    background-size: 100% 100%;
-}
-  
-.navbar-nav {
-    margin-bottom: 0;
-}
-  
-.nav-item {
-    margin-right: 20px;
-}
-  
-.nav-link {
-    color: #000;
-    transition: color 0.2s ease;
-}
-  
-.nav-link:hover {
-    color: #808080;
+/* Fondo general */
+body.fondo{
+  padding-top: 90px;          /* navbar fixed */
+  background-color: #cdcdcd;
 }
 
-.navbar-search-margin {
-    margin-right: 60px;
+/* Modo oscuro */
+body.oscuro{
+  background-color: #000;
+  color: #cdcdcd;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.navbar.oscuro {
-    background-color: #000;
+.transition{
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-.navbar.oscuro .nav-link {
-    color: #fff;
+/* =========================
+   Navbar
+   ========================= */
+
+.bg-fondo{
+  background-color: #ffffff;
 }
 
-.dropdown-menu.oscuro {
-    background-color: #000;
-    color: #fff;
+.navbar{
+  background-color: #ffffff;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
 }
 
-body.fondo {
-    padding-top: 90px;
-    background-color: #cdcdcd;
+.navbar-brand{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
 }
 
-body.oscuro {
-    background-color: #000;
-    color: #cdcdcd;
-    transition: background-color 0.1s ease, color 0.1s ease;
+.nav-item{
+  margin-right: 20px;
 }
 
-body.oscuro .navbar {
-    background-color: #000;
-    color: #cdcdcd;
+.nav-link{
+  color: #000;
+  transition: color 0.2s ease;
 }
 
-body.oscuro .navbar a {
-    color: #cdcdcd;
+.nav-link:hover{
+  color: #808080;
 }
 
-body.oscuro .dropdown-menu {
-    background-color: #000;
-    color: #cdcdcd;
+.navbar-search-margin{
+  margin-right: 60px;
 }
 
-body.oscuro .dropdown-menu a {
-    color: #cdcdcd;
+/* Navbar en oscuro */
+body.oscuro .navbar,
+.navbar.oscuro{
+  background-color: #000;
+  color: #cdcdcd;
+  border-bottom-color: rgba(255,255,255,0.15);
 }
 
-
-.transition {
-    transition: background-color 0.5s ease, color 0.5s ease;
+body.oscuro .navbar a,
+.navbar.oscuro .nav-link{
+  color: #cdcdcd;
 }
 
-.login {
-    padding: 15px;
-    width: 400px;
-    min-height: 400px;
-    margin: 2% auto 0 auto;
+body.oscuro .nav-link:hover{
+  color: #ffffff;
 }
 
-.centrar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+body.oscuro .dropdown-menu,
+.dropdown-menu.oscuro{
+  background-color: #000;
+  color: #cdcdcd;
+  border-color: rgba(255,255,255,0.15);
 }
 
-.h2{
-    font-size: 3em;
-    font-weight: 300;
-    display: inline-block;
-    padding-bottom: 5px;
-    text-shadow: 1px 1px 3px;
+body.oscuro .dropdown-menu a{
+  color: #cdcdcd;
 }
+
+/* Logo responsive */
+@media (max-width: 768px){
+  .navbar-brand img{
+    width: 80px;
+    height: auto;
+    padding: 0.2rem 0.2rem;
+  }
+}
+
+/* =========================
+   Tipografías / títulos
+   ========================= */
+
+.titulo{
+  text-align: center;
+  margin-top: 80px;
+}
+
+/* =========================
+   Footer
+   ========================= */
+
+.footer{
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  margin-top: 40px;
+  background: rgba(255,255,255,0.6);
+  border-top: 1px solid rgba(0,0,0,0.12);
+}
+
+body.oscuro .footer{
+  background: rgba(0,0,0,0.6);
+  border-top-color: rgba(255,255,255,0.15);
+}
+
+/* =========================
+   Carrusel
+   ========================= */
+
+.carousel-inner{
+  width: 100%;
+  max-height: 525px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.carousel-inner img{
+  width: 100%;
+  height: 525px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.carousel-item{
+  position: relative;
+}
+
+.textoimagen{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 14px 14px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+  background: linear-gradient(transparent, rgba(0,0,0,0.6));
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+}
+
+/* =========================
+   Noticias / párrafos
+   ========================= */
+
+.parrafo{
+  text-align: justify;
+  padding: 14px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.65);
+  max-width: 1000px;
+  margin: 20px auto;
+}
+
+body.oscuro .parrafo{
+  background: rgba(0,0,0,0.55);
+  border-color: rgba(255,255,255,0.15);
+}
+
+.parrafo img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Autor */
+.autor{
+  text-align: left;
+  margin: 20px auto;
+  max-width: 1000px;
+  padding: 0 10px;
+}
+
+.autor p{
+  margin-bottom: 6px;
+}
+
+/* =========================
+   Contacto (form)
+   ========================= */
 
 .alinear{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: left;
-    margin-bottom: 15px;
-    max-width: calc(100% - 16px);
-    margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 10px;
 }
 
 .alinear label{
-    flex: 0 0 150px;
-    margin-left: 10px;
-    text-align: left;
+  flex: 0 0 150px;
+  text-align: left;
 }
 
 .alinear input[type="text"],
 .alinear input[type="email"]{
-flex: 1;
-padding: 10px;
-border: 1px solid #ccc;
-border-radius: 4px;
-box-sizing: border-box;
-width: 100%;
+  flex: 1;
+  min-width: 240px;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 8px;
+  width: 100%;
 }
 
 .asunto{
-    margin-bottom: 15px;
-    text-align: center;
-    margin-left: 8px;
+  max-width: 1000px;
+  margin: 0 auto 15px auto;
+  padding: 0 10px;
 }
 
 .asunto label{
-    display: block;
-    margin-bottom: 5px;
-    text-align: left;
+  display: block;
+  margin-bottom: 8px;
+  text-align: left;
 }
 
 .asunto input[type="text"]{
-    width: 40%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-left: 8px;
-    display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 8px;
 }
 
 .asunto textarea{
-    width: calc(100% - 20px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin: 0 auto;
-    display: block;
-}
-
-.enviar input[type="submit"]{
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.enviar input[type="submit"]:hover{
-    background-color: #45a049;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 8px;
 }
 
 .enviar{
-    text-align: center;
-    margin-top: 10px;
+  text-align: center;
+  margin-top: 10px;
 }
 
-.container{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    position: relative;
-    margin-top: 20px;
+.enviar input[type="submit"]{
+  background-color: #198754; /* bootstrap success */
+  color: white;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: filter 0.2s ease;
 }
 
-.parrafo{
-    text-align: justify;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.enviar input[type="submit"]:hover{
+  filter: brightness(0.92);
 }
 
-.parrafo{
-    width: 85%;
-}e
+/* =========================
+   Cards (periodistas)
+   ========================= */
 
-.parrafo img{
-    max-width: 100%;
-    height: auto;
+.cardsita{
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
 }
 
-.titulo{
-    text-align: center;
-    margin-top: 80px;
+.cardsita:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(0,0,0,0.12);
 }
 
-.footer{
-    text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    padding: 20px;
+.card-tamano{
+  height: 340px;
+  width: 100%;
+  object-fit: cover;
 }
 
-.carousel-inner {
-    width: 100%;
-    max-height: 525px; /* Ajusta esta altura según tus necesidades */
+.cardsita .card-nombre{
+  font-family: 'Anton', sans-serif;
+  font-size: 1.35rem;
+  margin-bottom: 10px;
 }
 
-.carousel-inner img {
-    width: 100%;
-    height: 525px; /* Mantén la misma altura que max-height */
-    object-fit: cover;
+.biografia{
+  opacity: 0.92;
 }
 
-.textoimagen {
-    text-align: center;
-    padding: 15px 10px;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-    color: #fff;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    margin: 0;
+/* =========================
+   Botones extra
+   ========================= */
+
+.colorcito{
+  background-color: #ff0000;
 }
 
-.carousel-item {
-    position: relative;
+.colorcito:hover{
+  background-color: #b00b0b;
 }
 
+/* =========================
+   Login / Registro (soporta tu login antiguo y el nuevo)
+   ========================= */
 
-.imagenescentrar{
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-}
-
-.autor{
-    text-align: left;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 50px;
-}
-
-.autor p {
-    margin-bottom: 5px;
-}
-
-@media  screen and (max-width:768px) {
-    .parrafo h1{
-        width: 100%;
-    }
-}
-
-@media screen and(max-width:576px) {
-    .parrafo{
-        font-size: 14px;
-    }
-}
-
-.carousel-inner {
-    border-radius: 15px;
-}
-
-.carousel-item img {
-    border-radius: 15px;
-}
-
-@media (max-width: 768px) {
-    .navbar-brand img {
-        width: 80px;
-        height: auto;
-        padding: 1rem 0.5rem;
-    }
-}
-
-.textoimagen{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transform: translate(10px, -10px);
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: left;
-    padding: 5px;
-    text-shadow: 2px 2px 2px black;
-}
-
+/* (compat) tu clase .login antigua, pero sin duplicados raros */
 .login{
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 300px;
-    margin: 100px auto;
+  background-color: rgba(255,255,255,0.95);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+  padding: 22px;
+  width: 360px;
+  max-width: 92vw;
+  margin: 110px auto 40px auto;
 }
 
-.login h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #343a40;
-    font-family: cursive;
+.login h2{
+  text-align: center;
+  margin-bottom: 18px;
+  color: #343a40;
+  font-family: cursive;
 }
 
-.login input[type="email"],
-        .login input[type="password"],
-        .login input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-}
-
-.login button[type="submit"]{
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #343a40;
-    color: white;
-    cursor: pointer;
-    font-family: Arial, sans-serif;
-
-}    
-
-.login button[type="submit"]:hover{
-    background-color: #555;
-}
-
-.errores{
-    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    -o-box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    background: red;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    color: #fff;
-    display: none;
-    font-size: 14px;
-    margin-top: -80px;
-    margin-left: 340px;
-    padding: 10px;
-    position: absolute;
-}
-
+/* Inputs del login antiguo */
 .campo{
-    border: solid 4px #cece76;
-    font-size: 18px;
-    padding: 10px;
-    margin-bottom: 35px;
-    width: 300px;
+  width: 100%;
+  border: 1px solid rgba(0,0,0,0.18);
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 14px;
 }
 
-.card-tamano {
-    height: 340px; 
-    object-fit: 340px; 
+/* Mensajes de error (sin posicionamiento absoluto) */
+.errores{
+  display: none;
+  background: #dc3545;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin-top: -8px;
+  margin-bottom: 10px;
 }
 
-.custom-card {
-    width: 250px; 
-    height: 240px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.cardsita:hover {
-    transform: translateY(-10px);
-}
-.cardsita .card-nombre {
-
-    font-family: 'Anton', sans-serif;
-    font-size: 1.5;
-}
-
-.colorcito {
-    background-color: #ff0000; 
-}
-.colorcito:hover {
-    background-color: #b00b0b;
-  
-}
-
+/* Botón verde antiguo */
 .boton{
-    background: #30be14;
-    border: solid 0;
-    color: #fff;
-    padding: 10px;
+  background: #198754;
+  border: 0;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
 }
 
-.oscuro{
-    background-color: #000;
-    color: #fff;
+.boton:hover{
+  filter: brightness(0.92);
 }
-<<<<<<< HEAD
 
-.boton-google {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 50px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: none;
-    color: #757575;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, box-shadow 0.3s;
+/* Botón Google (si lo usas en login) */
+.boton-google{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #555;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
-.boton-google img {
-    margin-right: 10px;
-    width: 20px;
-    height: 20px;
+
+.boton-google img{
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
 }
-.boton-google:hover {
-    background-color: #f1f1f1;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+.boton-google:hover{
+  border-color: rgba(0,0,0,0.22);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
-=======
->>>>>>> d0f03d825b8a1587c9279266a2a5b0cc2b9fd3c1
+
+/* (nuevo) auth-page moderno (por si después reemplazas Login.html) */
+.auth-page{
+  padding-top: 110px;
+  padding-bottom: 40px;
+}
+
+.auth-card{
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+}
+
+.auth-header{
+  padding: 24px 22px 14px 22px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0));
+}
+
+.auth-logo{
+  width: 130px;
+  height: auto;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.auth-title{
+  font-size: 1.6rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.auth-subtitle{
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.auth-body{
+  padding: 18px 22px 22px 22px;
+}
+
+.auth-separator{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  margin: 18px 0;
+  opacity: 0.7;
+}
+
+.auth-separator::before,
+.auth-separator::after{
+  content:"";
+  height:1px;
+  background: rgba(0,0,0,0.15);
+  flex:1;
+}
+
+.auth-separator span{
+  font-size: 0.9rem;
+}
+
+.google-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+}
+
+.google-btn:hover{
+  border-color: rgba(0,0,0,0.22);
+}
+
+.auth-footnote{
+  font-size: 0.85rem;
+  opacity: 0.75;
+  text-align: center;
+}
+
+/* Dark mode para auth */
+body.oscuro .auth-card{
+  background: rgba(20,20,20,0.95);
+  border-color: rgba(255,255,255,0.10);
+}
+
+body.oscuro .auth-header{
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0));
+}
+
+body.oscuro .auth-separator::before,
+body.oscuro .auth-separator::after{
+  background: rgba(255,255,255,0.14);
+}
+
+/* =========================
+   Responsive pequeño
+   ========================= */
+
+@media screen and (max-width: 576px){
+  .textoimagen{
+    font-size: 15px;
+    padding: 12px;
+  }
+}

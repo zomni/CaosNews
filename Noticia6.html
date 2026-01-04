@@ -1,107 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CaosNews</title>
-    <link href="Style.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="jquery.js"></script>  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noticia | CaosNews</title>
+
+  <link rel="stylesheet" href="Style.css" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+          crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js"
+          integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+          crossorigin="anonymous"></script>
+  <script src="jquery.js"></script>
+
+  <style>
+    .article-card{
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 16px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    body.oscuro .article-card{
+      background: rgba(20,20,20,0.92);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .article-title{
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin: 0;
+    }
+    .article-lead{
+      opacity: 0.92;
+      font-size: 1.05rem;
+      margin-top: 10px;
+    }
+    .meta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      opacity: 0.9;
+      font-size: 0.95rem;
+    }
+    .article-body p{
+      text-align: justify;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+  </style>
 </head>
+
 <body class="fondo">
-    <!--NavBar--> 
-    <nav class="navbar navbar-expand-lg navbar-light bg-fondo fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="CaosNew.html"><img src="Imagenes/caos news (1).png" height="50" width="100">CaosNews</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="CaosNew.html">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Contacto.html">Contactanos</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Noticias
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="Deporte.html">Deporte</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="Tecnologia.html">Tecnologia</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="Politica.html">Politica</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="darkModeSwitch" onclick="modooscuro()">
-                            <label class="form-check-label" for="darkModeSwitch">Modo oscuro</label>
-                        </div>
-                    </li>
-                </ul>
-                <form class="d-flex navbar-search-margin" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
-                <li class="nav-item" id="loginLink">
-                    <a class="nav-link" href="Login.html">Login</a>
-                </li>
-                <div class="nav-item dropdown" id="userDropdown" style="display: none;">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span id="userName"></span>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="NoticiasUsuario.html">Sus noticias</a></li>
-                        <li><a class="dropdown-item" href="#" id="logoutBtn">Cerrar sesión</a></li>
-                    </ul>
-                </div>
+  <!-- NavBar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-fondo fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="CaosNew.html">
+        <img src="Imagenes/caos news (1).png" height="50" width="100" alt="CaosNews">CaosNews
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="CaosNew.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="Contacto.html">Contáctanos</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Noticias
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Deporte.html">Deporte</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="Tecnologia.html">Tecnología</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="Politica.html">Política</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item d-flex align-items-center ms-lg-3">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="darkModeSwitch" onclick="modooscuro()">
+              <label class="form-check-label" for="darkModeSwitch">Modo oscuro</label>
             </div>
+          </li>
+        </ul>
+
+        <form class="d-flex navbar-search-margin" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+
+        <li class="nav-item" id="loginLink">
+          <a class="nav-link" href="Login.html">Login</a>
+        </li>
+
+        <div class="nav-item dropdown" id="userDropdown" style="display:none;">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            <span id="userName"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="NoticiasUsuario.html">Sus noticias</a></li>
+            <li><a class="dropdown-item" href="#" id="logoutBtn">Cerrar sesión</a></li>
+          </ul>
         </div>
+
+      </div>
+    </div>
+  </nav>
+  <!-- Fin NavBar -->
+
+  <main class="container my-4">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="CaosNew.html">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="Deporte.html">Deporte</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Noticia</li>
+      </ol>
     </nav>
-        <!--Fin del NavBar-->
 
-    <div class="container">
-       <div class="parrafo">
-            <h1 style="width: 90%;">Inter de Milán se consagró campeón en Italia y Alexis alcanzó los 21 títulos</h1>
+    <article class="article-card">
+      <div class="p-4 p-md-5">
+        <h1 class="article-title">
+          Inter de Milán se consagró campeón en Italia y Alexis alcanzó los 21 títulos
+        </h1>
 
-            <br><br><br>
-
-            <p>El equipo dirigido por Simone Inzaghi derrotó al Milan, su clásico rival por 2-1 y se proclamó campeón de la Serie A.
-            <br>
-            <img src="/Imagenes/alesis.jpg" height="300px" width="1000px">
-            <br><br>
-            <p>El Inter de Milán de Alexis Sánchez venció al AC Milan en una nueva edición del derby Della Madonnina, encuentro que teníaun condimento extra al tratarse del primero y segundo de la tabla de posiciones.</p>
-            <br><br>
-            <p>Los Neroazzurros derrotaron a su clásico rival por 2-1 con anotaciones del italiano Francesco Acerbi y el francés Marcus Thuram, mientras que el descuento Rossonori fue obra del inglés Fikayo Tomori.
-
-            </p>
-            <br><br>
-            <p>Así, el Inter le sacó 17 puntos al Milán -con 15 puntos restantes en disputa-, con lo que los dirigidos de Simone Inzaghi se proclamaron campeones y obtuvieron el Scudetto a falta de 5 fechas del término de la Serie A.</p>
-            <br><br>
-            <p>Por su parte, el jugador de La Roja tuvo un rol más bien secundario en la disputa del título. En este partido, por ejemplo, estuvo citado, aunque no tuvo minutos en cancha.</p>
-            <br><br>
-            <p>En la Serie A, el tocopillano disputó 19 partidos, aunque solo en cinco fue titular, y anotó dos goles, números que se alejan del rendimiento con el que llegó desde el Olympique de Marsella a mediados de 2023.</p>
-            <br><br>
-        </div>
-    </div>
-    <div class="autor">
-        <p>Autor: Gonzalo Querol
+        <p class="article-lead">
+          El Inter celebró un nuevo Scudetto y Alexis sumó un nuevo logro a su carrera, alcanzando 21 títulos.
         </p>
-        <p>Fecha de publicacion:23/04/2024</p>
-        <p>Categoria: Deportes </p>
-        <p>Ubicacion: Italia</p>
-    </div>
 
-        <!--Footer-->
-            <footer class="footer">
-                <p>© 2024 CaosNews. Todos los derechos reservados.</p>
-          </footer>
-        <!--Fin del Footer-->
-    </body>
-    </html>
+        <div class="meta-row mt-3">
+          <span class="badge text-bg-success">Deporte</span>
+          <span class="badge text-bg-secondary">Fútbol</span>
+          <span class="badge text-bg-light border">Fecha: 2024</span>
+          <span class="ms-md-auto small opacity-75">Autor: Redacción CaosNews</span>
+        </div>
+      </div>
+
+      <figure class="m-0">
+        <img src="Imagenes/alesis.jpg" class="img-fluid w-100" alt="Alexis e Inter campeón" />
+      </figure>
+
+      <div class="p-4 p-md-5 article-body">
+        <!-- CUERPO DE LA NOTICIA -->
+        <p>
+          El Inter de Milán logró consagrarse campeón de la liga italiana tras una temporada sólida y regular.
+          El equipo celebró el título con su hinchada y cerró una campaña marcada por el buen rendimiento colectivo.
+        </p>
+
+        <p>
+          Para Alexis, este título significó un nuevo hito: llegó a los 21 campeonatos en su carrera, sumando un nuevo logro
+          en el fútbol europeo y consolidando su trayectoria.
+        </p>
+
+        <p>
+          Con el campeonato en el bolsillo, el club ya piensa en la planificación de la próxima temporada, mientras la afición
+          celebra el regreso a la cima.
+        </p>
+        <!-- FIN CUERPO -->
+
+        <div class="mt-4 d-flex flex-wrap gap-2">
+          <a class="btn btn-outline-secondary" href="Deporte.html">← Volver a Deporte</a>
+          <a class="btn btn-outline-primary" href="CaosNew.html">Ir al inicio</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <p>© 2024 CaosNews. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
